@@ -55,7 +55,7 @@ let monthChart = new Chart(monthCtx, {
 let roadsChart = new Chart(roadsCtx, {
     type: 'pie',
     data: {
-        labels: ['Road type 430', 'Road type 431', 'Road type 432', 'Road type 433', 'Road type 434', 'Road type 439'],
+        labels: ['Motorway', 'Express way', 'Principal road', 'Minor road', 'Motorway side installation', 'Other'],
         datasets: [{
             label: '# of Accidents',
             // Should listen an event and swap data
