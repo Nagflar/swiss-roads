@@ -2,11 +2,6 @@ const response = await fetch("./data.json");
 const data = await response.json();
 console.log(data);
 
-document.addEventListener("DOMContentLoaded", function(){
-    // Code here waits to run until the DOM is loaded.
-    console.log("DOM is ready");
-});
-  
 let monthCtx = document.getElementById('month-chart-canvas').getContext('2d');
 let roadsCtx = document.getElementById('roads-chart-canvas').getContext('2d');
 let severityCtx = document.getElementById('severity-chart-canvas').getContext('2d');
@@ -22,6 +17,8 @@ let monthChart = new Chart(monthCtx, {
             label: '# of Accidents',
             // Should listen an event and swap data
             data: [],
+            backgroundColor: '#9E7676',
+            borderColor: '#594545',
         }]
     },
     options: {
@@ -32,14 +29,16 @@ let monthChart = new Chart(monthCtx, {
                 suggestedMax: 400,
                 ticks: {
                     font: {
-                        size: 12
+                        family: 'Roboto',
+                        size: 20
                     }
                 }
             },
             x: {
                 ticks: {
                     font: {
-                        size: 12
+                        family: 'Roboto',
+                        size: 20
                     }
                 }
             }
@@ -47,7 +46,11 @@ let monthChart = new Chart(monthCtx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Accidents per Month'
+                text: 'Accidents per Month',
+                font: {
+                    size: 30,
+                    family: 'Roboto',
+                }
             }
         }
     }
@@ -63,16 +66,14 @@ let roadsChart = new Chart(roadsCtx, {
         }]
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                suggestedMax: 400
-            }
-        },
         plugins: {
             title: {
                 display: true,
-                text: 'Accidents per Month'
+                text: 'Accidents per Month',
+                font: {
+                    size: 30,
+                    family: 'Roboto',
+                }
             }
         }
     }
@@ -97,7 +98,11 @@ let frenchRoadsChart = new Chart(frenchRoadsCtx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Accidents per Month'
+                text: 'Accidents per Month',
+                font: {
+                    size: 30,
+                    family: 'Roboto',
+                }
             }
         }
     }
@@ -121,7 +126,11 @@ let severityChart = new Chart(severityCtx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Accidents per Month'
+                text: 'Accidents per Month',
+                font: {
+                    size: 30,
+                    family: 'Roboto',
+                }
             }
         }
     }
@@ -135,7 +144,11 @@ let frenchAccidentBubbleChart = new Chart(frenchAccidentBubbleCtx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Accidents per 1000 habitants and canton population'
+                text: 'Accidents per 1000 habitants and canton population',
+                font: {
+                    size: 30,
+                    family: 'Roboto',
+                }
             }
         }
     }
@@ -150,7 +163,12 @@ let accidentBubbleChart = new Chart(accidentBubbleCtx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Accidents per 1000 habitants and canton population'
+                text: 'Accidents per 1000 habitants and canton population',
+                
+                font: {
+                    size: 30,
+                    family: 'Roboto',
+                }
             }
         }
     }
@@ -162,7 +180,7 @@ let updateMonthChart = () => {
     const year = document.getElementById("month-year-select").value;
     const zone = document.getElementById("month-zone-select").value;
 
-    const cantonData = data["swiss"][year].find(c=>c.cantonCode == zone);
+    const cantonData = data["swiss"][year].find(c => c.cantonCode == zone);
     const monthData = [
         cantonData.accident_count_january,
         cantonData.accident_count_february,
@@ -186,7 +204,7 @@ let updateRoadsChart = () => {
     const year = document.getElementById("roads-year-select").value;
     const zone = document.getElementById("roads-zone-select").value;
 
-    const cantonData = data["swiss"][year].find(c=>c.cantonCode == zone);
+    const cantonData = data["swiss"][year].find(c => c.cantonCode == zone);
     const roadData = [
         cantonData.accident_count_rt430,
         cantonData.accident_count_rt431,
@@ -203,7 +221,7 @@ let updateRoadsChart = () => {
 let updateFrenchRoadsChart = () => {
     const year = document.getElementById("french-roads-year-select").value;
     const zone = document.getElementById("french-roads-zone-select").value;
-    const departementData = data["french"][year].find(c=>c.departementCode == zone);
+    const departementData = data["french"][year].find(c => c.departementCode == zone);
     const roadData = [
         departementData.accident_count_metropole,
         departementData.accident_count_communale,
@@ -221,7 +239,7 @@ let updateFrenchRoadsChart = () => {
 let updateSeverityChart = () => {
     const year = document.getElementById("severity-year-select").value;
     const zone = document.getElementById("severity-zone-select").value;
-    const cantonData = data["swiss"][year].find(c=>c.cantonCode == zone);
+    const cantonData = data["swiss"][year].find(c => c.cantonCode == zone);
     const severityData = [
         cantonData.accident_count_fatalities,
         cantonData.accident_count_severe,
@@ -237,7 +255,7 @@ let updateFrenchAccidentBubbleChart = () => {
     const year = document.getElementById("french-accident-1000-year-select").value;
     const depData = data["french"][year];
     frenchAccidentBubbleChart.data.datasets = [];
-    depData.forEach(c=>{
+    depData.forEach(c => {
         frenchAccidentBubbleChart.data.datasets.push({
             label: c.departementCode,
             data: [
@@ -256,7 +274,7 @@ let updateAccidentBubbleChart = () => {
     const year = document.getElementById("accident-1000-year-select").value;
     const cantonData = data["swiss"][year];
     accidentBubbleChart.data.datasets = [];
-    cantonData.forEach(c=>{
+    cantonData.forEach(c => {
         accidentBubbleChart.data.datasets.push({
             label: c.cantonCode,
             data: [
