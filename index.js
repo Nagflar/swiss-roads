@@ -22,6 +22,8 @@ let monthChart = new Chart(monthCtx, {
         }]
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         indexAxis: 'y',
         scales: {
             y: {
@@ -35,6 +37,7 @@ let monthChart = new Chart(monthCtx, {
                 }
             },
             x: {
+                type: 'logarithmic',
                 ticks: {
                     font: {
                         family: 'Roboto',
@@ -89,12 +92,6 @@ let frenchRoadsChart = new Chart(frenchRoadsCtx, {
         }]
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                suggestedMax: 400
-            }
-        },
         plugins: {
             title: {
                 display: true,
@@ -141,6 +138,8 @@ let frenchAccidentBubbleChart = new Chart(frenchAccidentBubbleCtx, {
         datasets: [],
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             title: {
                 display: true,
@@ -160,11 +159,24 @@ let accidentBubbleChart = new Chart(accidentBubbleCtx, {
         datasets: [],
     },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                type: 'logarithmic',
+                ticks: {
+                    font: {
+                        family: 'Roboto',
+                        size: 20
+                    }
+                }
+            }
+        },
         plugins: {
             title: {
                 display: true,
                 text: 'Accidents per 1000 habitants and canton population',
-                
+
                 font: {
                     size: 30,
                     family: 'Roboto',
@@ -174,7 +186,10 @@ let accidentBubbleChart = new Chart(accidentBubbleCtx, {
     }
 
 })
-
+let accidentTable = new gridjs.Grid({
+    columns: ["Canton", "Population", "Accident/1000"],
+    data: []
+}).render(document.getElementById("french-table"));
 
 let updateMonthChart = () => {
     const year = document.getElementById("month-year-select").value;
@@ -260,8 +275,8 @@ let updateFrenchAccidentBubbleChart = () => {
             label: c.departementCode,
             data: [
                 {
-                    x: c.population,
-                    y: c.accident_count_per_1000_population,
+                    y: c.population,
+                    x: c.accident_count_per_1000_population,
                     r: 10
                 }
             ]
@@ -279,14 +294,29 @@ let updateAccidentBubbleChart = () => {
             label: c.cantonCode,
             data: [
                 {
-                    x: c.population,
-                    y: c.accident_count_per_1000_population,
+                    y: c.population,
+                    x: c.accident_count_per_1000_population,
                     r: 10
                 }
             ]
         })
     })
     accidentBubbleChart.update();
+}
+
+let updateAccidentTable = () => {
+    const year = document.getElementById("accident-1000-year-select").value;
+    let tableData = [];
+    data["swiss"][year].forEach(c => {
+        tableData.push([
+            c.cantonCode,
+            c.population,
+            c.accident_count_per_1000_population])
+    })
+    accidentTable.updateConfig({
+        columns: ["Canton", "Population", "Accident/1000"],
+        data: tableData
+    }).forceRender();
 }
 
 document.getElementById("month-year-select").addEventListener("change", updateMonthChart)
@@ -305,10 +335,10 @@ document.getElementById("french-accident-1000-year-select").addEventListener("ch
 
 document.getElementById("accident-1000-year-select").addEventListener("change", updateAccidentBubbleChart)
 
-
 updateMonthChart();
 updateRoadsChart();
 updateSeverityChart();
 updateFrenchRoadsChart();
 updateAccidentBubbleChart();
 updateFrenchAccidentBubbleChart();
+updateAccidentTable();
