@@ -6,6 +6,7 @@ body {
 
     --text-color: #594545;
     --background-color: #FFF8EA;
+    --block-color : #eee9da;
     --header-color: #9E7676;
 
     color: var(--text-color);
@@ -31,14 +32,12 @@ body {
 }
 
 .big-title {
-    margin-top: 35vh;
-    margin-bottom: 35vh;
-    width: 100vw;
 }
+
 .main-scroll {
     display: flex;
     flex-direction: column;
-    row-gap: 4rem;
+    row-gap: 7rem;
 }
 
 .row {
@@ -62,6 +61,28 @@ body {
 
 .full-width-text-block {
     max-width: 90vw;
+}
+
+.big-title{
+    display: inline-block;
+    font-size: 5rem;
+    color: var(--header-color);
+    font-weight: bold;
+    display: flex;
+    justify-content: left;
+}
+
+.smol-title{
+    font-size: x-large;
+    margin-bottom: 1rem;
+}
+
+.title-block{
+    margin-top: 45vh;
+    margin-bottom: 15vh;
+    padding: 2rem;
+    display: inline-block;
+    max-width: 60vw;
 }
 
 h2 {
@@ -113,9 +134,24 @@ h1 {
     }
 
     .big-title{
-        margin-top: 35vh;
-        margin-bottom: 35vh;
-        width: 100vw;
+        display: inline-block;
+        font-size: 5rem;
+        color: var(--header-color);
+        font-weight: bold;
+        display: flex;
+        justify-content: left;
+    }
+
+    .smol-title{
+        font-size: x-large;
+    }
+
+    .title-block{
+        margin-top: 45vh;
+        margin-bottom: 15vh;
+        padding: 2rem;
+        display: inline-block;
+        max-width: 60vw;
     }
 
     .main-scroll {
@@ -193,4 +229,26 @@ h1 {
 /* remove default arrow in IE */
 select::-ms-expand {
     display: none;
+}
+
+/* select styling */
+.title-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 4rem;
+    padding: 1rem 1rem 1rem 1rem;
+    background: var(--background-color);
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    font-family: roboto, monospace;
+    font-size: large;
+}
+
+.title-button:hover {
+    border: 1px solid #999;
+}
+
+.title-button:active {
+    border: 2px solid var(--text-color);
 }

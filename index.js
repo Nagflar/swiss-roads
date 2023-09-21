@@ -17,7 +17,7 @@ let monthChart = new Chart(monthCtx, {
             label: '# of Accidents',
             // Should listen an event and swap data
             data: [],
-            backgroundColor: '#9E7676',
+            backgroundColor: '#FFBA86',
             borderColor: '#594545',
         }]
     },
@@ -55,7 +55,13 @@ let roadsChart = new Chart(roadsCtx, {
         datasets: [{
             label: '# of Accidents',
             // Should listen an event and swap data
-            data: []
+            data: [],
+            backgroundColor: [
+                'rgb(121, 21, 91)',
+                'rgb(194, 51, 115)',
+                'rgb(246, 99, 92)',
+                'rgb(255, 186, 134)',
+            ]
         }]
     }
 });
@@ -66,7 +72,13 @@ let frenchRoadsChart = new Chart(frenchRoadsCtx, {
         datasets: [{
             label: '# of Accidents',
             // Should listen an event and swap data
-            data: []
+            data: [],
+            backgroundColor: [
+                'rgb(121, 21, 91)',
+                'rgb(194, 51, 115)',
+                'rgb(246, 99, 92)',
+                'rgb(255, 186, 134)',
+            ]
         }]
     },
     options: {
@@ -91,9 +103,10 @@ let severityChart = new Chart(severityCtx, {
             // Should listen an event and swap data
             data: [],
             backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'rgb(121, 21, 91)',
+                'rgb(194, 51, 115)',
+                'rgb(246, 99, 92)',
+                'rgb(255, 186, 134)',
             ]
         }]
     },
@@ -104,6 +117,7 @@ let frenchAccidentBubbleChart = new Chart(frenchAccidentBubbleCtx, {
     type: 'bubble',
     data: {
         datasets: [],
+        
     },
     options: {
         responsive: true,
@@ -120,6 +134,13 @@ let accidentBubbleChart = new Chart(accidentBubbleCtx, {
     type: 'bubble',
     data: {
         datasets: [],
+        backgroundColor: [
+            'rgb(121, 21, 91)',
+            'rgb(194, 51, 115)',
+            'rgb(246, 99, 92)',
+            'rgb(255, 186, 134)',
+            'rgb(178, 87, 113)'
+        ]
     },
     options: {
         responsive: true,
@@ -128,10 +149,6 @@ let accidentBubbleChart = new Chart(accidentBubbleCtx, {
             y: {
                 type: 'logarithmic',
                 ticks: {
-                    font: {
-                        family: 'Roboto',
-                        size: 20
-                    }
                 }
             }
         },
