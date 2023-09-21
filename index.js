@@ -45,16 +45,6 @@ let monthChart = new Chart(monthCtx, {
                     }
                 }
             }
-        },
-        plugins: {
-            title: {
-                display: true,
-                text: 'Accidents per Month',
-                font: {
-                    size: 30,
-                    family: 'Roboto',
-                }
-            }
         }
     }
 });
@@ -67,18 +57,6 @@ let roadsChart = new Chart(roadsCtx, {
             // Should listen an event and swap data
             data: []
         }]
-    },
-    options: {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Accidents per Month',
-                font: {
-                    size: 30,
-                    family: 'Roboto',
-                }
-            }
-        }
     }
 });
 let frenchRoadsChart = new Chart(frenchRoadsCtx, {
@@ -120,16 +98,6 @@ let severityChart = new Chart(severityCtx, {
         }]
     },
     options: {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Accidents per Month',
-                font: {
-                    size: 30,
-                    family: 'Roboto',
-                }
-            }
-        }
     }
 });
 let frenchAccidentBubbleChart = new Chart(frenchAccidentBubbleCtx, {
@@ -141,13 +109,8 @@ let frenchAccidentBubbleChart = new Chart(frenchAccidentBubbleCtx, {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            title: {
-                display: true,
-                text: 'Accidents per 1000 habitants and canton population',
-                font: {
-                    size: 30,
-                    family: 'Roboto',
-                }
+            legend : {
+                display: false
             }
         }
     }
@@ -173,22 +136,14 @@ let accidentBubbleChart = new Chart(accidentBubbleCtx, {
             }
         },
         plugins: {
-            title: {
-                display: true,
-                text: 'Accidents per 1000 habitants and canton population',
-
-                font: {
-                    size: 30,
-                    family: 'Roboto',
-                }
-            }
         }
     }
 
 })
 let accidentTable = new gridjs.Grid({
     columns: ["Canton", "Population", "Accident/1000"],
-    data: []
+    data: [],
+    autoWidth: true,
 }).render(document.getElementById("french-table"));
 
 let updateMonthChart = () => {
@@ -315,7 +270,9 @@ let updateAccidentTable = () => {
     })
     accidentTable.updateConfig({
         columns: ["Canton", "Population", "Accident/1000"],
-        data: tableData
+        data: tableData,
+        autoWidth: true, 
+        sort: true
     }).forceRender();
 }
 
@@ -331,9 +288,12 @@ document.getElementById("french-roads-zone-select").addEventListener("change", u
 document.getElementById("severity-year-select").addEventListener("change", updateSeverityChart)
 document.getElementById("severity-zone-select").addEventListener("change", updateSeverityChart);
 
-document.getElementById("french-accident-1000-year-select").addEventListener("change", updateFrenchAccidentBubbleChart)
-
 document.getElementById("accident-1000-year-select").addEventListener("change", updateAccidentBubbleChart)
+
+document.getElementById("french-accident-1000-year-select").addEventListener("change",()=> {
+    updateFrenchAccidentBubbleChart();
+    updateAccidentTable();
+})
 
 updateMonthChart();
 updateRoadsChart();

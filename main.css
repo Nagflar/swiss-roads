@@ -30,11 +30,11 @@ body {
     width: 80vw;
 }
 
-.placeholder-400-empty {
-    height: 70vh;
+.big-title {
+    margin-top: 35vh;
+    margin-bottom: 35vh;
     width: 100vw;
 }
-
 .main-scroll {
     display: flex;
     flex-direction: column;
@@ -112,8 +112,9 @@ h1 {
         width: 80vw;
     }
 
-    .placeholder-400-empty {
-        height: 70vh;
+    .big-title{
+        margin-top: 35vh;
+        margin-bottom: 35vh;
         width: 100vw;
     }
 
