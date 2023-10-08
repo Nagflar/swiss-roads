@@ -55,6 +55,14 @@ body {
     padding-right: 2rem;
 }
 
+.conclusion {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    margin-top: 10rem;
+    padding-right: 2rem;
+}
+
 .text-block {
     max-width: 60vw;
 }
@@ -96,7 +104,8 @@ h1 {
 }
 
 .accident-table{
-    height: 50vh;
+    height: 70vh;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 1200px) {
@@ -144,6 +153,7 @@ h1 {
 
     .smol-title{
         font-size: x-large;
+        margin-bottom: 1rem;
     }
 
     .title-block{
@@ -176,6 +186,12 @@ h1 {
         padding-right: 2rem;
     }
 
+    .conclusion {
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
     
     .accident-table{
         height: 20vh;
@@ -199,6 +215,11 @@ h1 {
     h1 {
         border-bottom: 3px solid var(--header-color);
         color: var(--header-color);
+    }
+
+    .accident-table{
+        height: 70vh;
+        overflow: hidden;
     }
 }
 

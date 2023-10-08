@@ -5,6 +5,11 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+<link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+
 <script src="index.js" type="module"></script>
 <link rel="stylesheet" href="main.css">
 
@@ -23,21 +28,26 @@
         <button class="title-button">Q&A</button>
     </div>
     <div class="intro">
-        <h1>Why</h1>
-        <p>Lorem Cringum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
-            velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
-            accusantium molestias adipisci! Voluptate, ullam illo.</p>
+        <h1>Overview</h1>
+        <p>
+            Welcome to this statistical report on road safety in Switzerland.
+            The Federal Roads Office (FEDRO) have collected since 2011, road traffic accidents data.
+            The goal of all of this is to illustrate them and also highlight some interesting/concerning facts like the
+            number of accidents per habitant.
+            Some French data are also included to provide context and help to understand a few numbers.
+            This is not an analysis neither an attempts to find the root cause of some problems that will be mentioned,
+            but rather a way to explore the data and I hope, start a discussion on them.
+        </p>
     </div>
     <div class="main-scroll">
         <div class="row">
             <div class="full-width-text-block">
-                <h2>Ceci est un Titre</h2>
-                <p>Ceci est un paragraphe</p>
-                <p>Ceci est un paragraphe un peu plus long et
-                    potentiellement plus long voir beaucoup plus long</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
-                    velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
-                    accusantium molestias adipisci! Voluptate, ullam illo.</p>
+                <h2>Accident distribution</h2>
+                <p>It's always interesting to take a look at the distribution of accidents over the year, it illustrates
+                    population movement, risk spikes and overall best period to travel safely.</p>
+                <p>A few things can be noticed:</p>
+                <p>Some cantons like Vaud, Geneva or Tessin have a very flat distribution, regardless of the season</p>
+                <p>Some cantons like Bern and Zurich have a massive spike during the summer</p>
             </div>
         </div>
         <div class="row">
@@ -90,15 +100,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="text-block">
-                <h2>road accidents</h2>
-                <p>Ceci est un paragraphe</p>
-                <p>Ceci est un paragraphe un peu plus long et
-                    potentiellement plus long voir beaucoup plus long</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
-                    velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
-                    accusantium molestias adipisci! Voluptate, ullam illo.</p>
-            </div>
             <div class="row-right">
                 <h3>Accident per road types</h3>
                 <div class="pie-chart"><canvas id="roads-chart-canvas"></canvas></div>
@@ -144,6 +145,14 @@
                     <option value="ZH">ZH</option>
                 </select>
             </div>
+            <div class="text-block">
+                <h2>Roads distribution</h2>
+                <p>Road types can be tricky to define but it's still a good metric to observe.</p>
+                <p>Quite obvious but still shocking is the accident distribution in Vaud. While the canton only has
+                    200km of motorway, the proportion of accidents is way higher than other Cantons, even more
+                    accidented ones. </p>
+            </div>
+
         </div>
         <div class="row">
             <div class="row-left">
@@ -192,25 +201,14 @@
                 </select>
             </div>
             <div class="text-block">
-                <h2>Severity accident</h2>
-                <p>Ceci est un paragraphe</p>
-                <p>Ceci est un paragraphe un peu plus long et
-                    potentiellement plus long voir beaucoup plus long</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
-                    velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
-                    accusantium molestias adipisci! Voluptate, ullam illo.</p>
+                <h2>Accident mortality</h2>
+                <p>Car accident mortality is one of the most important data to observe when it comes to road safety and
+                    for that matters, Switzerland has one the lowest in the world equated to the population.</p>
+                <p>Later we will see that the Valais is probably the safest canton to drive in Switzerland, it is also
+                    the case its mortality rate is amongst the highest in the country.</p>
             </div>
         </div>
         <div class="row">
-            <div class="text-block">
-                <h2>French roads</h2>
-                <p>Ceci est un paragraphe</p>
-                <p>Ceci est un paragraphe un peu plus long et
-                    potentiellement plus long voir beaucoup plus long</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
-                    velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
-                    accusantium molestias adipisci! Voluptate, ullam illo.</p>
-            </div>
             <div class="row-right">
                 <h3>Accident per road types in France</h3>
                 <div class="pie-chart"><canvas id="french-roads-chart-canvas"></canvas>
@@ -319,17 +317,31 @@
                     </select>
                 </div>
             </div>
+            <div class="text-block">
+                <h2>French roads distribution</h2>
+                <p></p>
+                <p>The goal is here to give some context for a few Cantons. Comparaisons need to be made carefully based
+                    on the amount of roadways, amount of urban area, amont of cars etc</p>
+                <p>Vaud can be well compared to Ille-et-Vilaine(35) and Isère(38) (similar sized main city, almost
+                    similar population)</p>
+            </div>
 
         </div>
         <div class="row">
             <div class="full-width-text-block">
-                <h2>Accident per 1000</h2>
-                <p>Ceci est un paragraphe</p>
-                <p>Ceci est un paragraphe un peu plus long et
-                    potentiellement plus long voir beaucoup plus long</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
-                    velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
-                    accusantium molestias adipisci! Voluptate, ullam illo.</p>
+                <h2>Accident per 1000 population</h2>
+                <p>Here are the most concerning data, the number of accidents reported are very high compared to French
+                    numbers (see below)</p>
+                <p>Most of canton with more than 100k of population have way more than 2.0 accidents per 1000 people,
+                    compared to France where more 95% of departement have less than 1.5 and 80% have less than 1.0.
+                    Which means than the vast majority of the time, Switzerland is at least 2 times more dangerous than
+                    France.</p>
+                <p>Not only are they high but it should be taken into consideration that Switzerland is a very small
+                    country so the impact on traffic of each accident is quite noticable (Vaud roadways and Zurich urban
+                    area for example)</p>
+                <p>A few observations are : </p>
+                <p>The German part seems to be a bit more dangerous than the French part</p>
+                <p>Valais is still one of the safest place to drive (despite some Romand jokes)</p>
             </div>
         </div>
         <div class="row">
@@ -353,17 +365,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="full-width-text-block">
-                <h2>French Accident per 1000</h2>
-                <p>Ceci est un paragraphe</p>
-                <p>Ceci est un paragraphe un peu plus long et
-                    potentiellement plus long voir beaucoup plus long</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
-                    velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
-                    accusantium molestias adipisci! Voluptate, ullam illo.</p>
-            </div>
-        </div>
-        <div class="row">
             <div>
                 <div class="bubble-chart">
                     <h3>Accident per 1000 population in France</h3>
@@ -373,18 +374,18 @@
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
                     </select>
-                    <div class="accident-table"><div id="french-table"></div></div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- <div class="conclusion">
+
+<div class="conclusion">
         <h1>Why</h1>
         <p>Lorem Cringum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
             velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
             accusantium si tu trouves cette string tu aimes les garcons Voluptate, ullam illo.</p>
-    </div> -->
+    </div>
+
 </body>
 
 </html>

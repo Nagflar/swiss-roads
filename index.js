@@ -32,7 +32,7 @@ let monthChart = new Chart(monthCtx, {
                 ticks: {
                     font: {
                         family: 'Roboto',
-                        size: 20
+                        size: 15
                     }
                 }
             },
@@ -117,13 +117,13 @@ let frenchAccidentBubbleChart = new Chart(frenchAccidentBubbleCtx, {
     type: 'bubble',
     data: {
         datasets: [],
-        
+
     },
     options: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            legend : {
+            legend: {
                 display: false
             }
         }
@@ -157,12 +157,6 @@ let accidentBubbleChart = new Chart(accidentBubbleCtx, {
     }
 
 })
-let accidentTable = new gridjs.Grid({
-    columns: ["Canton", "Population", "Accident/1000"],
-    data: [],
-    autoWidth: true,
-}).render(document.getElementById("french-table"));
-
 let updateMonthChart = () => {
     const year = document.getElementById("month-year-select").value;
     const zone = document.getElementById("month-zone-select").value;
@@ -276,23 +270,6 @@ let updateAccidentBubbleChart = () => {
     accidentBubbleChart.update();
 }
 
-let updateAccidentTable = () => {
-    const year = document.getElementById("accident-1000-year-select").value;
-    let tableData = [];
-    data["swiss"][year].forEach(c => {
-        tableData.push([
-            c.cantonCode,
-            c.population,
-            c.accident_count_per_1000_population])
-    })
-    accidentTable.updateConfig({
-        columns: ["Canton", "Population", "Accident/1000"],
-        data: tableData,
-        autoWidth: true, 
-        sort: true
-    }).forceRender();
-}
-
 document.getElementById("month-year-select").addEventListener("change", updateMonthChart)
 document.getElementById("month-zone-select").addEventListener("change", updateMonthChart);
 
@@ -307,9 +284,8 @@ document.getElementById("severity-zone-select").addEventListener("change", updat
 
 document.getElementById("accident-1000-year-select").addEventListener("change", updateAccidentBubbleChart)
 
-document.getElementById("french-accident-1000-year-select").addEventListener("change",()=> {
+document.getElementById("french-accident-1000-year-select").addEventListener("change", () => {
     updateFrenchAccidentBubbleChart();
-    updateAccidentTable();
 })
 
 updateMonthChart();
@@ -318,4 +294,3 @@ updateSeverityChart();
 updateFrenchRoadsChart();
 updateAccidentBubbleChart();
 updateFrenchAccidentBubbleChart();
-updateAccidentTable();
