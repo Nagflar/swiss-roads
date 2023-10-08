@@ -18,8 +18,6 @@
     <div class="title-block">
         <div class="big-title">Swiss roads 🇨🇭</div>
         <div class="smol-title">A quick report on accidents in Switzerland from 2011 to 2021.</div>
-        <button class="title-button">Sources</button>
-        <button class="title-button">Q&A</button>
     </div>
     <div class="intro">
         <h1>Overview</h1>
@@ -27,15 +25,21 @@
             Welcome to this statistical report on road safety in Switzerland.
             The Federal Roads Office (FEDRO) have collected since 2011, car accidents data.
             The goal of all of this is to illustrate them and also highlight some interesting or concerning facts :
-        <p>Which canton is the safest ?</p>
-        <p>What type of roads are the most accidented ? </p>
-        <p>Why is there 200% to 400% more accidents in Switzerland per habitant than in France ?</p>
-        <p>Why is Switzerland have one of the highest accident rates in the world (top 20) but with the lowest mortality
-            in the world ?</p>
-
-        Some French data are also included to provide context and help to understand a few numbers.
-        This is not an analysis neither an attempts to find the root cause of some problems that will be mentioned,
-        but rather a way to explore the data and I hope, start a discussion on them.
+        </p>
+        <ul>
+            <li>Which canton is the safest ?</li>
+            <li>What type of roads are the most accidented ? </li>
+            <li>Why is there <strong>200% to 400% more accidents</strong> in Switzerland per habitant than in France ?
+            </li>
+            <li>Why is Switzerland have one of the highest accident rates in the world (top 20) but with the
+                <strong>lowest mortality</strong>
+                in the world ?</li>
+        </ul>
+        <p>
+            Some French data are also included to provide context and help to understand a few numbers and also because
+            the main point of this report is to highlight the <strong>amount of accident in Romandy.</strong>
+            This is not an analysis neither an attempts to find the root cause of some problems that will be mentioned,
+            but rather a way to explore the data and I hope, start a discussion on them.
         </p>
     </div>
     <div class="main-scroll">
@@ -45,8 +49,12 @@
                 <p>It's always interesting to take a look at the distribution of accidents over the year, it illustrates
                     population movement, risk spikes and overall best period to travel safely.</p>
                 <p>A few things can be noticed:</p>
-                <p>Some cantons like Vaud, Geneva or Tessin have a very flat distribution, regardless of the season</p>
-                <p>Some cantons like Bern and Zurich have a massive spike during the summer</p>
+                <ul>
+                    <li>Some cantons like Vaud, Geneva or Tessin have a very flat distribution, regardless of the season
+                    </li>
+                    <li>Some cantons like Bern and Zurich have a massive spike during the <strong>summer</strong></li>
+                    <li>Vaud in 2011 has a strange and very different distribution compared to the rest</li>
+                </ul>
             </div>
         </div>
         <div class="row">
@@ -148,67 +156,11 @@
                 <h2>Roads distribution</h2>
                 <p>Road types can be tricky to define but it's still a good metric to observe.</p>
                 <p>The accident distribution in Vaud is special in the sense that the canton only has
-                    200km of motorway but the proportion of accidents on main roads/motorway is way higher than other
-                    Cantons. </p>
+                    <strong>200km of motorway</strong> but the proportion of accidents on main roads/motorway is very concerning.
+                </p>
+                <p>There is an obvious problem on the motorway, hosting this much accidents in such a small road must have an immense impact on traffic and maintenance.</p>
             </div>
 
-        </div>
-        <div class="row">
-            <div class="row-left">
-                <h3>Accidents severity</h3>
-                <div class="pie-chart"><canvas id="severity-chart-canvas"></canvas></div>
-                <select id="severity-year-select" class="custom-select">
-                    <option value="2011">2011</option>
-                    <option value="2012">2012</option>
-                    <option value="2013">2013</option>
-                    <option value="2014">2014</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019" selected>2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                </select>
-                <select id="severity-zone-select" class="custom-select">
-                    <option value="AG">AG</option>
-                    <option value="AI">AI</option>
-                    <option value="AR">AR</option>
-                    <option value="BE">BE</option>
-                    <option value="BL">BL</option>
-                    <option value="BS">BS</option>
-                    <option value="FR">FR</option>
-                    <option value="GE">GE</option>
-                    <option value="GL">GL</option>
-                    <option value="GR">GR</option>
-                    <option value="JU">JU</option>
-                    <option value="LU">LU</option>
-                    <option value="NE">NE</option>
-                    <option value="NW">NW</option>
-                    <option value="OW">OW</option>
-                    <option value="SG">SG</option>
-                    <option value="SH">SH</option>
-                    <option value="SO">SO</option>
-                    <option value="SZ">SZ</option>
-                    <option value="TG">TG</option>
-                    <option value="TI">TI</option>
-                    <option value="UR">UR</option>
-                    <option value="VD" selected>VD</option>
-                    <option value="VS">VS</option>
-                    <option value="ZG">ZG</option>
-                    <option value="ZH">ZH</option>
-                </select>
-            </div>
-            <div class="text-block">
-                <h2>Accident mortality</h2>
-                <p>Car accident mortality is one of the most important data to observe when it comes to road safety and
-                    for that matters, Switzerland has one the lowest in the world equated to the population with only
-                    241 deaths in 2022 (28 per million habitant).</p>
-                <p>Compared to France 48 death per million and Germany 37 death per million, Switzerland outshine
-                    neighboors and rest of Europe on that regard.</p>
-                <p>Later we will see that the Valais is probably the safest canton to drive in Switzerland, it is also
-                    the case its mortality rate is amongst the highest in the country.</p>
-            </div>
         </div>
         <div class="row">
             <div class="row-right">
@@ -332,24 +284,82 @@
             </div>
 
         </div>
+
+        <div class="row">
+            <div class="row-left">
+                <h3>Accidents severity</h3>
+                <div class="pie-chart"><canvas id="severity-chart-canvas"></canvas></div>
+                <select id="severity-year-select" class="custom-select">
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019" selected>2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                </select>
+                <select id="severity-zone-select" class="custom-select">
+                    <option value="AG">AG</option>
+                    <option value="AI">AI</option>
+                    <option value="AR">AR</option>
+                    <option value="BE">BE</option>
+                    <option value="BL">BL</option>
+                    <option value="BS">BS</option>
+                    <option value="FR">FR</option>
+                    <option value="GE">GE</option>
+                    <option value="GL">GL</option>
+                    <option value="GR">GR</option>
+                    <option value="JU">JU</option>
+                    <option value="LU">LU</option>
+                    <option value="NE">NE</option>
+                    <option value="NW">NW</option>
+                    <option value="OW">OW</option>
+                    <option value="SG">SG</option>
+                    <option value="SH">SH</option>
+                    <option value="SO">SO</option>
+                    <option value="SZ">SZ</option>
+                    <option value="TG">TG</option>
+                    <option value="TI">TI</option>
+                    <option value="UR">UR</option>
+                    <option value="VD" selected>VD</option>
+                    <option value="VS">VS</option>
+                    <option value="ZG">ZG</option>
+                    <option value="ZH">ZH</option>
+                </select>
+            </div>
+            <div class="text-block">
+                <h2>Accident mortality</h2>
+                <p>Car accident mortality is one of the most important data to observe when it comes to road safety and
+                    for that matters, Switzerland has one the lowest in the world equated to the population with
+                    <strong>only
+                        241 deaths in 2022</strong> (28 per million habitant).</p>
+                <p>Compared to France 48 death per million and Germany 37 death per million, Switzerland outshine
+                    neighboors and rest of Europe on that regard.</p>
+                <p>Later we will see that the Valais is probably the safest canton to drive in Switzerland, it is also
+                    the case its mortality rate is amongst the <strong>highest in the country.</strong></p>
+            </div>
+        </div>
         <div class="row">
             <div class="full-width-text-block">
                 <h2>Accident per 1000 population</h2>
                 <p>Here are the most concerning data, the number of accidents reported are very high compared to French
-                    numbers (see below)</p>
-                <p>Most of canton with more than 100 000 of population have way more than 2.0 accidents per 1000 people.
-                    Compared to France where more 95% of departement have less than 1.5 and 80% have less than 1.0.
-                    It is fair to say that one is way more susceptible to encounter or be part of a car accident in
-                    Switzerland.
-                    In most places, at minimum 200% more accident per habitant than a direct neighbor should be a
-                    concern.</p>
+                    numbers. It also to be noted that this is the only part of Switzerland more accident than its direct neighbor.</p>
+                <p>Most of canton with more than <strong>100 000 of population have way more than 2.0 accidents per 1000 people.</strong>
+                    Compared to France where more 95% of departement have less than 1.5 and <strong>80% have less than 1.0.</strong>
+                    It is fair to say that one is way more susceptible to encounter or be part of a car accident Romandy than in France.</p>
                 <p>Not only are they high but it should be taken into consideration that Switzerland is a very small
                     country so the impact on traffic of each accident is probably more potent. (Vaud roadways and Zurich
                     urban
                     area for example, are heavily impacted when accidents happen)</p>
                 <p>A few observations are : </p>
-                <p>The German part seems to be a bit more dangerous than the French part</p>
-                <p>Valais is still one of the safest place to drive (despite some Romand jokes)</p>
+                <ul>
+                    <li>The German part seems to be a bit more dangerous than the French part</li>
+                    <li><strong>Valais is one of the safest</strong> place to drive (despite some Romand jokes)</li>
+                </ul>
             </div>
         </div>
         <div class="row">
@@ -389,14 +399,21 @@
 
     <div class="conclusion">
         <h1>Conclusion</h1>
-        <p>Switzerland really excels at road safety in a sense that mortality if fare much lower than in France, Germany or Italy. 
-            However, the number of accidents per habitant seems very high compared to France for the Romandy and very low in the German speaking compared to Germany.</p>
-        <p>Is it too much of an assumption that Alemanni have excellent driver compared to their German neighbor ? And Romandy have very poor drivers compared to their French neighboor ?</p>
-        <p>Is it a problem with road configurations ? Is the process to obtain a driving licence too easy ? Is it the amount of police / speed control on the road ? Is it the density of roads per area ? The amount of drivers ?</p>
-        <p>Regardless of the answer, Austria has ≈4000, Germany ≈3600, Italy ≈2800, Switzerland ≈2000 and France ≈800 accidents per million people. 
-            The only part of Switzerland that is not safer than its direct neigbor is the Romandy by far, despite what the locals say.</p>
+        <p>Switzerland really excels at road safety in a sense that <strong>mortality is fare much lower than in France, Germany
+            or Italy.</strong>
+            However, the number of accidents per habitant seems very high compared to France for the Romandy and very
+            low in Alemanni compared to Germany.</p>
+        <p>Is it too much of an assumption that Alemanni have excellent driver compared to their German neighbor ? And
+            Romandy have very poor drivers compared to their French neighboor ?</p>
+        <p>Is it a problem with road configurations ? Is the process to obtain a driving licence too easy ? Is it the
+            amount of police / speed control on the road ? Is it the density of roads per area ? The amount of drivers ?
+        </p>
+        <p>Regardless of the answer, Austria has ≈4000, Germany ≈3600, Italy ≈2800, Switzerland ≈2000 and France ≈800
+            accidents per million people.
+            The only part of Switzerland that is not safer than its direct neighbor is the Romandy by far, despite some
+            "anti-french" echoes.</p>
         <p></p>
-        <h1>Q&A</h1>
+        <h1 id="QA">Q&A</h1>
         <details>
             <summary>Are the French simply not declaring accidents ?</summary>
             <p>No, and if it is the case it is not explaining the 200-400% difference with Switzerland.</p>
@@ -407,28 +424,48 @@
         </details>
         <details>
             <summary>"I think the people in my canton drive better than X and Y"</summary>
-            <p>It's about the place, not the people. Some place have a lot of traffic from different cantons and even different countries.</p>
+            <p>It's about the place, not the people. Some place have a lot of traffic from different cantons and even
+                different countries.</p>
         </details>
         <details>
             <summary>Why such a concern for the amount of accident while mortality is very low ?</summary>
-            <p>While people not dying on the road is a very good news, driving should not be so risky. Also the impact of this much accidents in such a small space is yet to be determined (traffic, insurance costs, cost of road crash...)</p>
+            <p>While people not dying on the road is a very good news, driving should not be so risky. Also the impact
+                of this much accidents in such a small space is yet to be determined (traffic, insurance costs, cost of
+                road crash...)</p>
         </details>
         <details>
             <summary>Why use population instead of registered cars</summary>
-            <p>Simplicity. If number of registered cars was used, Swiss stats would probably way more concerning compared to France. (France have more car per habitant)</p>
+            <p>Simplicity. If number of registered cars was used, Swiss stats would probably way more concerning
+                compared to France. (France have more car per habitant)</p>
         </details>
         <details>
             <summary>"It's not fair, my canton has too much immigrants"</summary>
             <p>It's about the place, not the people.</p>
         </details>
         <details>
-            <summary>Is it more fare to compare Romandy to France and German speaking Switzerland to Germany OR Romandy to German speaking Switzerland ?</summary>
-            <p>Geograpical proximity is a very important factor and I have a very hard time to answer this question but my guess is that Romandy should be compared to France and German speaking Switzerland to Germany</p>
+            <summary>Is it more fare to compare Romandy to France and German speaking Switzerland to Germany OR Romandy
+                to German speaking Switzerland ?</summary>
+            <p>Geograpical proximity is a very important factor and I have a very hard time to answer this question but
+                my guess is that Romandy should be compared to France and German speaking Switzerland to Germany</p>
         </details>
-        <h1>Sources</h1>
+        <details>
+            <summary>Why is the website ugly ?</summary>
+            <p>I am bad at web design</p>
+        </details>
+        <details>
+            <summary>How was it made ?</summary>
+            <p>Data generation with simple ETL process in typescript, data hosted on pgsql, data visualized with
+                chart.js, full static website for cheaper/free hosting (it is not a tech demo, simply a report)</p>
+        </details>
+        <h1 id="source">Sources</h1>
         <ul>
-            <li>aze</li>
-            <li>aze</li>
+            <li>https://opendata.swiss/en/dataset/strassenverkehrsunfalle-mit-personenschaden/resource/b0f24719-3625-4831-97aa-d0cc5d94153f
+            </li>
+            <li>https://www.data.gouv.fr/fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2022/
+            </li>
+            <li>https://www.bfs.admin.ch/bfs/en/home/statistics/population.assetdetail.26565163.html</li>
+            <li>https://www.insee.fr/fr/statistiques/1893198</li>
+            <li>https://worldpopulationreview.com/country-rankings/countries-with-the-most-car-accidents</li>
         </ul>
 
     </div>
