@@ -25,12 +25,17 @@
         <h1>Overview</h1>
         <p>
             Welcome to this statistical report on road safety in Switzerland.
-            The Federal Roads Office (FEDRO) have collected since 2011, road traffic accidents data.
-            The goal of all of this is to illustrate them and also highlight some interesting/concerning facts like the
-            number of accidents per habitant.
-            Some French data are also included to provide context and help to understand a few numbers.
-            This is not an analysis neither an attempts to find the root cause of some problems that will be mentioned,
-            but rather a way to explore the data and I hope, start a discussion on them.
+            The Federal Roads Office (FEDRO) have collected since 2011, car accidents data.
+            The goal of all of this is to illustrate them and also highlight some interesting or concerning facts :
+        <p>Which canton is the safest ?</p>
+        <p>What type of roads are the most accidented ? </p>
+        <p>Why is there 200% to 400% more accidents in Switzerland per habitant than in France ?</p>
+        <p>Why is Switzerland have one of the highest accident rates in the world (top 20) but with the lowest mortality
+            in the world ?</p>
+
+        Some French data are also included to provide context and help to understand a few numbers.
+        This is not an analysis neither an attempts to find the root cause of some problems that will be mentioned,
+        but rather a way to explore the data and I hope, start a discussion on them.
         </p>
     </div>
     <div class="main-scroll">
@@ -80,7 +85,7 @@
                         <option value="OW">OW</option>
                         <option value="SG">SG</option>
                         <option value="SH">SH</option>
-                        <option value="SO">SO</option>
+                        <option value="SO">SO</option>&
                         <option value="SZ">SZ</option>
                         <option value="TG">TG</option>
                         <option value="TI">TI</option>
@@ -142,9 +147,9 @@
             <div class="text-block">
                 <h2>Roads distribution</h2>
                 <p>Road types can be tricky to define but it's still a good metric to observe.</p>
-                <p>Quite obvious but still shocking is the accident distribution in Vaud. While the canton only has
-                    200km of motorway, the proportion of accidents is way higher than other Cantons, even more
-                    accidented ones. </p>
+                <p>The accident distribution in Vaud is special in the sense that the canton only has
+                    200km of motorway but the proportion of accidents on main roads/motorway is way higher than other
+                    Cantons. </p>
             </div>
 
         </div>
@@ -197,7 +202,10 @@
             <div class="text-block">
                 <h2>Accident mortality</h2>
                 <p>Car accident mortality is one of the most important data to observe when it comes to road safety and
-                    for that matters, Switzerland has one the lowest in the world equated to the population.</p>
+                    for that matters, Switzerland has one the lowest in the world equated to the population with only
+                    241 deaths in 2022 (28 per million habitant).</p>
+                <p>Compared to France 48 death per million and Germany 37 death per million, Switzerland outshine
+                    neighboors and rest of Europe on that regard.</p>
                 <p>Later we will see that the Valais is probably the safest canton to drive in Switzerland, it is also
                     the case its mortality rate is amongst the highest in the country.</p>
             </div>
@@ -314,10 +322,13 @@
             <div class="text-block">
                 <h2>French roads distribution</h2>
                 <p></p>
-                <p>The goal is here to give some context for a few Cantons. Comparaisons need to be made carefully based
+                <p>The goal is here to give some context for Swiss data. Comparaisons need to be made carefully bewteen
+                    French departement and Swiss canton based
                     on the amount of roadways, amount of urban area, amont of cars etc</p>
-                <p>Vaud can be well compared to Ille-et-Vilaine(35) and Isère(38) (similar sized main city, almost
-                    similar population)</p>
+                <p>For example, Vaud can be well compared to Ille-et-Vilaine(35) and Isère(38) (similar sized main city,
+                    almost
+                    similar population) and we can observe that the amount of roadway accidents in Vaud is concerning.
+                </p>
             </div>
 
         </div>
@@ -326,13 +337,16 @@
                 <h2>Accident per 1000 population</h2>
                 <p>Here are the most concerning data, the number of accidents reported are very high compared to French
                     numbers (see below)</p>
-                <p>Most of canton with more than 100k of population have way more than 2.0 accidents per 1000 people,
-                    compared to France where more 95% of departement have less than 1.5 and 80% have less than 1.0.
-                    Which means than the vast majority of the time, Switzerland is at least 2 times more dangerous than
-                    France.</p>
+                <p>Most of canton with more than 100 000 of population have way more than 2.0 accidents per 1000 people.
+                    Compared to France where more 95% of departement have less than 1.5 and 80% have less than 1.0.
+                    It is fair to say that one is way more susceptible to encounter or be part of a car accident in
+                    Switzerland.
+                    In most places, at minimum 200% more accident per habitant than a direct neighbor should be a
+                    concern.</p>
                 <p>Not only are they high but it should be taken into consideration that Switzerland is a very small
-                    country so the impact on traffic of each accident is quite noticable (Vaud roadways and Zurich urban
-                    area for example)</p>
+                    country so the impact on traffic of each accident is probably more potent. (Vaud roadways and Zurich
+                    urban
+                    area for example, are heavily impacted when accidents happen)</p>
                 <p>A few observations are : </p>
                 <p>The German part seems to be a bit more dangerous than the French part</p>
                 <p>Valais is still one of the safest place to drive (despite some Romand jokes)</p>
@@ -373,11 +387,46 @@
         </div>
     </div>
 
-<div class="conclusion">
-        <h1>Why</h1>
+    <div class="conclusion">
+        <h1>Conclusion</h1>
         <p>Lorem Cringum dolor sit amet consectetur adipisicing elit. Repellendus doloribus quia explicabo
             velit est inventore veritatis illo quasi, voluptate dolore similique voluptatem optio totam
             accusantium si tu trouves cette string tu aimes les garcons Voluptate, ullam illo.</p>
+        <h1>Q&A</h1>
+        <details>
+            <summary>Are the French simply not declaring accidents ?</summary>
+            <p>No, and if it is the case it is not explaining the 200-400% difference with Switzerland.</p>
+        </details>
+        <details>
+            <summary>Why only 3 years of data for France ? </summary>
+            <p>The french datasets were too messy to clean up before 2019.</p>
+        </details>
+        <details>
+            <summary>"I think the people in my canton drive better than X and Y"</summary>
+            <p>It's about the place, not the people. Some place have a lot of traffic from different cantons and even different countries.</p>
+        </details>
+        <details>
+            <summary>Why such a concern for the amount of accident while mortality is very low ?</summary>
+            <p>While people not dying on the road is a very good news, driving should not be so risky. Also the impact of this much accidents in such a small space is yet to be determined (traffic, insurance costs, cost of road crash...)</p>
+        </details>
+        <details>
+            <summary>Why use population instead of registered cars</summary>
+            <p>Simplicity. If number of registered cars was used, Swiss stats would probably way more concerning compared to France. (France have more car per habitant)</p>
+        </details>
+        <details>
+            <summary>"It's not fair, my canton has too much immigrants"</summary>
+            <p>It's about the place, not the people.</p>
+        </details>
+        <details>
+            <summary>Is it more fare to compare Romandy to France and German speaking Switzerland to Germany OR Romandy to German speaking Switzerland ?</summary>
+            <p>Geograpical proximity is a very important factor and I have a very hard time to answer this question but my guess is that Romandy should be compared to France and German speaking Switzerland to Germany</p>
+        </details>
+        <h1>Sources</h1>
+        <ul>
+            <li>aze</li>
+            <li>aze</li>
+        </ul>
+
     </div>
 
 </body>
